@@ -202,12 +202,15 @@ footer {
 
 	li {
 		display: inline-block;
-		padding-right: 1em;
 
 		a {
 			color: #a5a5a5;
 			font-weight: bold;
 		}
+	}
+
+	li + li {
+		padding-left: 1em;
 	}
 }
 

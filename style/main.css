@@ -149,11 +149,12 @@ footer {
   list-style-type: none;
   margin: 0; }
   .links li {
-    display: inline-block;
-    padding-right: 1em; }
+    display: inline-block; }
     .links li a {
       color: #a5a5a5;
       font-weight: bold; }
+  .links li + li {
+    padding-left: 1em; }
 
 .inner-footer {
   padding: 0 2em; }
