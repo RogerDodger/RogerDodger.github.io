@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Reviewing Shorthand"
+title:  "Editing Shorthand"
 ---
 
 <dl>
