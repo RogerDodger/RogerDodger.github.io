@@ -1,0 +1,189 @@
+/* =========================================================================
+ * Configuration variables
+ * ========================================================================= */
+/* =========================================================================
+ * Common styles
+ * ========================================================================= */
+html,
+button,
+input,
+select,
+textarea {
+  color: #222; }
+
+@font-face {
+  font-family: AbyssinicaSIL-R;
+  src: local(AbyssinicaSIL), url(fonts/AbyssinicaSIL-R.woff), url(fonts/AbyssinicaSIL-R.ttf); }
+
+body {
+  font-family: AbyssinicaSIL-R, "Apple Garamond", Garamond, Georgia, monospace;
+  font-size: 1em;
+  line-height: 1.6em; }
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection declarations have to be separate.
+ * Customize the background color to match your design.
+ */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+/*
+ * Make placeholder colour consistent across browsers
+ */
+::-webkit-input-placeholder {
+  color: #999; }
+
+:-moz-placeholder {
+  color: #999; }
+
+:-ms-input-placeholder {
+  color: #999; }
+
+/*
+ * Make links only underline on hover
+ */
+a {
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: underline; }
+
+/*
+ * Give smooth look to code blocks
+ */
+pre {
+  background: url(images/pinstripe.gif);
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  color: #eee;
+  font-size: 0.75em;
+  line-height: 1.5em;
+  padding: 1em 1.5em; }
+
+/*
+ * Make larger titles less imposing
+ */
+h1,
+h2 {
+  font-weight: normal; }
+
+/*
+ * Sticky footer: http://ryanfait.com/resources/footer-stick-to-bottom-of-page/
+ */
+html,
+body {
+  height: 100%; }
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -6.5em; }
+
+.push {
+  height: 6.5em; }
+
+/* =========================================================================
+ * Default layout
+ * ========================================================================= */
+header .container {
+  padding: 1em 0;
+  background: #444;
+  border-bottom: 0.1em solid #000;
+  min-width: 40em; }
+
+.header-shadow {
+  height: 0.4em;
+  min-width: 40em;
+  margin-bottom: 2.5em;
+  background: -webkit-linear-gradient(top, #aaaaaa, white);
+  background: -moz-linear-gradient(top, #aaaaaa, white);
+  background: -ms-linear-gradient(top, #aaaaaa, white);
+  background: -o-linear-gradient(top, #aaaaaa, white); }
+
+.inner-header {
+  padding-left: 4em;
+  width: 36em;
+  margin: 0 auto; }
+  .inner-header h1 {
+    margin: 0; }
+    .inner-header h1 a {
+      color: #fff;
+      line-height: 1;
+      font-size: 1.5em; }
+      .inner-header h1 a:hover {
+        color: #aaa;
+        text-decoration: none; }
+
+.content {
+  width: 40em;
+  margin: 0 auto; }
+
+.footer-shadow {
+  height: 0.4em;
+  min-width: 40em;
+  margin-top: 2.5em;
+  background: -webkit-linear-gradient(top, white, #aaaaaa);
+  background: -moz-linear-gradient(top, white, #aaaaaa);
+  background: -ms-linear-gradient(top, white, #aaaaaa);
+  background: -o-linear-gradient(top, white, #aaaaaa); }
+
+footer {
+  height: 1.55em;
+  text-align: center; }
+  footer .container {
+    min-width: 40em;
+    border-top: 0.1em solid #000;
+    background: #444;
+    padding: 1em 0;
+    height: 100%; }
+
+.links {
+  list-style-type: none;
+  margin: 0; }
+  .links li {
+    display: inline-block;
+    padding-right: 1em; }
+    .links li a {
+      color: #a5a5a5;
+      font-weight: bold; }
+
+.inner-footer {
+  padding: 0 2em; }
+
+/* =========================================================================
+ * Post listings
+ * ========================================================================= */
+ul.posts {
+  list-style-type: none;
+  padding-left: 0; }
+
+ul.posts li {
+  line-height: 1.75em; }
+
+ul.posts span {
+  color: #aaa;
+  font-family: Monaco, "Courier New", monospace;
+  font-size: 80%; }
+
+/* =========================================================================
+ * Posts
+ * ========================================================================= */
+.post {
+  position: relative; }
+  .post .date {
+    position: absolute;
+    left: -6em;
+    width: 5em;
+    padding: 0.5em 0;
+    border-top: 3px solid #444;
+    font-size: 1.1em;
+    text-align: center;
+    text-transform: uppercase; }
