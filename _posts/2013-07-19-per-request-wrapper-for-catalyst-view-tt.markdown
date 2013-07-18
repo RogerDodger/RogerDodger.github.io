@@ -7,6 +7,7 @@ Catalyst::View::TT allows you to define a wrapper that is used for *every* reque
 
 {% highlight perl %}
 package MyApp::View::TT;
+...
 
 __PACKAGE__->config(
 	WRAPPER => 'wrapper.tt',
