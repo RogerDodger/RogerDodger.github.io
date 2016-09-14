@@ -251,4 +251,14 @@ ul.posts .date {
       text-align: center;
       text-transform: uppercase;
    }
+
+	p code {
+		background: hsla(0, 0%, 10%, 1);
+		color: hsla(0, 0%, 90%, 1);
+		font-size: 0.8em;
+		padding: 0.1em 0.3em;
+		position: relative;
+		top: -0.1em;
+		vertical-align: middle;
+	}
 }
