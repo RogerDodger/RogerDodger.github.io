@@ -10,7 +10,7 @@ package MyApp::View::TT;
 ...
 
 __PACKAGE__->config(
-	WRAPPER => 'wrapper.tt',
+   WRAPPER => 'wrapper.tt',
 );
 {% endhighlight %}
 
@@ -20,8 +20,8 @@ My solution was to still use this wrapper, but instead of it actually being a wr
 
 {% highlight text %}
 [%
-    DEFAULT wrapper = 'wrapper/default.tt';
-    WRAPPER $wrapper; GET content; END;
+   DEFAULT wrapper = 'wrapper/default.tt';
+   WRAPPER $wrapper; GET content; END;
 -%]
 {% endhighlight %}
 
@@ -29,11 +29,11 @@ Then, by setting the stash value for "wrapper" to the desired file name, the des
 
 {% highlight perl %}
 sub auto :Private {
-    ...
-    if ($c->req->header('x-requested-with') eq 'XMLHttpRequest') {
-        $c->stash->{wrapper} = 'wrapper/bare.tt';
-    }
-    ...
+   ...
+   if ($c->req->header('x-requested-with') eq 'XMLHttpRequest') {
+      $c->stash->{wrapper} = 'wrapper/bare.tt';
+   }
+   ...
 }
 {% endhighlight %}
 
@@ -41,8 +41,10 @@ However, this still wasn't satisfactory for emails, since in the case where an e
 
 Because the stash is localised within the template, my solution here was to put that bit of logic in the dummy wrapper:
 
-    [%
-        DEFAULT wrapper = 'wrapper/default.tt';
-        CALL (wrapper = 'wrapper/email.tt') IF template.name.match('^email/');
-        WRAPPER $wrapper; GET content; END;
-    -%]
+{% highlight text %}
+[%
+   DEFAULT wrapper = 'wrapper/default.tt';
+   CALL (wrapper = 'wrapper/email.tt') IF template.name.match('^email/');
+   WRAPPER $wrapper; GET content; END;
+-%]
+{% endhighlight %}
