@@ -47,7 +47,7 @@ Aside from those, you'll probably want a dictionary/thesaurus. People on \*nix s
 
 This is the real hard one, because there's more than one way to skin a cat. Depending on your criteria, you'll probably end up with a different solution.
 
-First up, the easy stuff: smart quotes and dashes. If you don't already know what the deal with dashes are, check [this article](http://eznguide.rogerdodger.me/#Dashes-hyphens-and-ellipses-a-technical-note).
+First up, the easy stuff: smart quotes and dashes. If you don't already know what the deal with dashes are, check [this article](http://eznguide.neocities.org/#Dashes-hyphens-and-ellipses-a-technical-note).
 
 Most word processors will do the smart quotes for you, so no problems there. (If you don't trust word processors, check out [SmartyPants](http://daringfireball.net/projects/smartypants/).) Just be careful about leading apostrophes: *’tis*, *’taint*, *’ello*, etc – those should all look like little 9's, *not* 6's. An apostrophe does not turn heel merely because it's placed at the start of a word.
 
