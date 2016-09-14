@@ -18,10 +18,12 @@ However, there is no (documented and encapsulated) way of changing this value on
 
 My solution was to still use this wrapper, but instead of it actually being a wrapper itself, this wrapper simply wrapped the content in another wrapper:
 
-    [%
-        DEFAULT wrapper = 'wrapper/default.tt';
-        WRAPPER $wrapper; GET content; END;
-    -%]
+{% highlight text %}
+[%
+    DEFAULT wrapper = 'wrapper/default.tt';
+    WRAPPER $wrapper; GET content; END;
+-%]
+{% endhighlight %}
 
 Then, by setting the stash value for "wrapper" to the desired file name, the desired wrapper is used. So in my use case, for this to work for AJAX requests, in MyApp::Controller::Root:
 
