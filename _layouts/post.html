@@ -1,14 +1,16 @@
 ---
 layout: default
 ---
-<article class="post" id="post">
-   <div class="date">{{ page.date | date_to_string }}</div>
+<article class="Post" id="post">
+   <div class="Post-date">{{ page.date | date_to_string }}</div>
 
-   <h2>{{ page.title }}</h2>
+   <div class="Post-contents">
+      <h2>{{ page.title }}</h2>
 
-   <section class="body">
-      {{ content }}
-   </section>
+      <section class="body">
+         {{ content }}
+      </section>
 
-   <p><a href="/">&laquo; back to posts</a></p>
+      <p><a href="/">&laquo; back to posts</a></p>
+   </div>
 </article>

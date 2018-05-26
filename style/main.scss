@@ -5,8 +5,7 @@
  * Configuration variables
  * ========================================================================= */
 
-$site_width: 40em;
-$footer-height: 6.5em;
+$site-width: 40rem;
 
 @mixin background-gradient($args...) {
    background: -webkit-linear-gradient($args);
@@ -19,6 +18,12 @@ $footer-height: 6.5em;
  * Common styles
  * ========================================================================= */
 
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 html,
 button,
 input,
@@ -28,6 +33,7 @@ textarea {
 }
 
 @font-face {
+   font-display: optional;
    font-family: AbyssinicaSIL-R;
    src: local(AbyssinicaSIL),
         url(fonts/AbyssinicaSIL-R.woff),
@@ -83,18 +89,6 @@ a:hover {
 }
 
 /*
- * Give smooth look to code blocks
- */
-
-pre {
-   background: url(images/pinstripe.gif);
-   color: #eee;
-   font-size: 0.75em;
-   line-height: 1.5em;
-   padding: 1em 1.5em;
-}
-
-/*
  * Make larger titles less imposing
  */
 
@@ -112,88 +106,75 @@ body {
    height: 100%;
 }
 
-.wrapper {
-   min-height: 100%;
-   height: auto !important;
-   height: 100%;
-   margin: 0 auto $footer-height * -1;
-}
-
-.push {
-   height: $footer-height;
-}
-
 /* =========================================================================
  * Default layout
  * ========================================================================= */
 
-header {
-   .container {
-      padding: 1em 0;
-      background: #444;
-      border-bottom: 0.1em solid #000;
-      min-width: $site_width;
+.Site {
+   min-height: 100%;
+   display: flex;
+   flex-direction: column;
+}
+
+.Site-content {
+   flex: 1;
+}
+
+.Site-header {
+   padding: 1em 0;
+   background: #444;
+   border-bottom: 0.1em solid #000;
+   display: flex;
+   justify-content: center;
+}
+
+.Site-title {
+   margin: 0;
+   flex-basis: $site-width;
+
+   a {
+      color: #fff;
+      line-height: 1;
+      font-size: 0.9em;
+      padding-left: 3em;
+
+      &:hover {
+         color: #aaa;
+         text-decoration: none;
+      }
    }
 }
 
 .header-shadow {
    height: 0.4em;
-   min-width: $site_width;
-   margin-bottom: 2.5em;
+   width: 100%;
+   margin-bottom: 1.2em;
 
    @include background-gradient(top, #aaa, #fff);
 }
 
-.inner-header {
-   padding-left: 4em;
-   width: $site_width - 4em;
-   margin: 0 auto;
-
-   h1 {
-      margin: 0;
-
-      a {
-         color: #fff;
-         line-height: 1;
-         font-size: 0.9em;
-
-         &:hover {
-            color: #aaa;
-            text-decoration: none;
-         }
-      }
-   }
-}
-
-.content {
-   width: $site_width;
-   margin: 0 auto;
-}
-
-.footer-shadow {
-   height: 0.4em;
-   min-width: $site_width;
-   margin-top: 2.5em;
-
-   @include background-gradient(top, #fff, #aaa);
-}
-
-footer {
-   height: $footer-height - 4.95em;
-   text-align: center;
+.Site-content {
+   display: flex;
+   justify-content: center;
 
    .container {
-      min-width: $site_width;
-      border-top: 0.1em solid #000;
-      background: #444;
-      padding: 1em 0;
-      height: 100%;
+      flex-basis: $site-width;
+      padding: 0 1em;
    }
 }
 
-.links {
+.Site-footer {
+   background: #444;
+   border-top: 0.1em solid #000;
+   margin-top: 2.5em;
+   padding: 1em 0;
+   text-align: center;
+}
+
+.Site-links {
    list-style-type: none;
    margin: 0;
+   padding-left: 0;
 
    li {
       display: inline-block;
@@ -209,10 +190,6 @@ footer {
    }
 }
 
-.inner-footer {
-   padding: 0 2em;
-}
-
 /* =========================================================================
  * Post listings
  * ========================================================================= */
@@ -223,7 +200,13 @@ ul.posts {
 }
 
 ul.posts li {
-   line-height: 1.75em;
+   line-height: 1.2;
+   padding-left: 1.5em;
+   text-indent: -1.5em;
+
+   & + li {
+      margin-top: 0.7em;
+   }
 }
 
 ul.posts .date {
@@ -236,29 +219,77 @@ ul.posts .date {
  * Posts
  * ========================================================================= */
 
-.post {
+.Post {
    position: relative;
+   margin-top: 1em;
 
-   .date {
-      position: absolute;
-      left: -6em;
-      width: 5em;
+   p code {
+      background: hsla(0, 0%, 10%, 1);
+      color: hsla(0, 0%, 90%, 1);
+      font-size: 0.8em;
+      padding: 0.1em 0.3em;
+      position: relative;
+      top: -0.1em;
+      vertical-align: middle;
+   }
+}
 
-      padding: 0.5em 0;
-      border-top: 3px solid #444;
+.Post-date {
+   position: absolute;
+   width: 5.5rem;
+   left: -6.7rem;
+   padding: 0.5em 0;
+   border-top: 3px solid #444;
 
-      font-size: 1.1em;
-      text-align: center;
-      text-transform: uppercase;
+   font-size: 1.1em;
+   text-align: center;
+   text-transform: uppercase;
+}
+
+.Post-contents > *:first-child {
+   margin-top: 0;
+}
+
+@media (max-width: $site-width + 11rem) {
+   .Post-date {
+      position: static;
+      width: auto;
+      padding: 0;
+      border: 0;
+      margin: 0 0 1em 0;
+   }
+}
+
+/*
+ * Code block styling
+ */
+
+.highlight {
+   margin: 1em 0;
+   max-width: calc(100vw - 2.7rem);
+   overflow: auto;
+
+   pre, code {
+      background: url(images/pinstripe.gif);
    }
 
-	p code {
-		background: hsla(0, 0%, 10%, 1);
-		color: hsla(0, 0%, 90%, 1);
-		font-size: 0.8em;
-		padding: 0.1em 0.3em;
-		position: relative;
-		top: -0.1em;
-		vertical-align: middle;
-	}
+   pre {
+      color: hsla(0, 0%, 90%, 1);
+      font-size: 0.75em;
+      margin: 0;
+      white-space: normal;
+
+      code {
+         display: inline-block;
+         line-height: 1.5em;
+         padding: 1em 1.5em;
+         white-space: pre;
+      }
+   }
+}
+
+@media (min-width: $site-width) {
+   .highlight {
+      max-width: $site-width;
+   }
 }

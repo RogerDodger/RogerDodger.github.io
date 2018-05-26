@@ -8,32 +8,27 @@
       </title>
       <meta name="viewport" content="width=device-width">
 
-      <link rel="stylesheet" href="//yui.yahooapis.com/pure/0.2.0/pure-min.css">
+      <link rel="stylesheet" href="/style/normalize.css">
       <link rel="stylesheet" href="/style/syntax.css">
       <link rel="stylesheet" href="/style/main.css">
    </head>
    <body>
-      <div class="wrapper">
-         <header>
-            <div class="container">
-               <div class="inner-header">
-                  <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-               </div>
-            </div>
-            <div class="header-shadow"></div>
+      <div class="Site">
+         <header class="Site-header">
+            <h1 class="Site-title">
+               <a href="/">{{ site.name }}</a>
+            </h1>
          </header>
+         <div class="header-shadow"></div>
 
-         <section class="content">
-            {{ content }}
-         </section>
+         <div class="Site-content">
+            <div class="container">
+               {{ content }}
+            </div>
+         </div>
 
-         <div class="push"></div>
-      </div>
-
-      <footer>
-         <div class="footer-shadow"></div>
-         <div class="container">
-            <ul class="links">
+         <footer class="Site-footer">
+            <ul class="Site-links">
                <li>
                   <a href="https://github.com/RogerDodger">Projects</a>
                </li>
@@ -41,7 +36,7 @@
                   <a href="mailto:roger.dodger.thor&#64;gmail.com">Contact</a>
                </li>
             </ul>
-         </div>
-      </footer>
+         </footer>
+      </div>
    </body>
 </html>
